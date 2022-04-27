@@ -13,4 +13,28 @@ blood_limes_per_month = [75.0, 75.0, 76.0, 71.0, 74.0, 77.0, 69.0, 80.0, 63.0, 6
 # create figure with width of 12 and height of 8
 plt.figure(figsize=(12,8))
 
+#figure 1
+ax1 = plt.subplot(1,2,1)
+x_values = range(len(months))
+plt.plot(x_values, visits_per_month, marker = 's')
+plt.xlabel('Month')
+plt.ylabel('visits per month')
+ax1.set_xticks(x_values)
+ax1.set_xticklabels(months)
+plt.title('Visits by Month')
+
+#figure 2,plotting three lines on same set of axes
+ax2 = plt.subplot(1,2,2)
+plt.plot(x_values, key_limes_per_month, color = 'green')
+plt.plot(x_values, blood_limes_per_month, color = 'red')
+plt.plot(x_values, persian_limes_per_month, color = 'purple')
+plt.legend(['key lime', 'blood lime', 'persian lime'])
+ax2.set_xticks(x_values)
+ax2.set_xticklabels(months)
+plt.xlabel('Month')
+plt.ylabel('Limes per month')
+plt.title('Types of Limes by month')
+
+plt.savefig('Visits_and_Limes_by_month.png')
+
 plt.show()
